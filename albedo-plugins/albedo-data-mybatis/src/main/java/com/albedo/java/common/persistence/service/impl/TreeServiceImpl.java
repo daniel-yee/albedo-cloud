@@ -30,7 +30,7 @@ public abstract class TreeServiceImpl<Repository extends TreeRepository<T>,
 	public T findTreeOne(Serializable id) {
 		List<T> treeList = repository.findRelationList(
 			new QueryWrapper<T>().eq(getClassNameProfix() + TreeEntity.F_SQL_ID, id));
-		return SqlHelper.getObject(treeList);
+		return CollUtil.getObject(treeList);
 	}
 
 	@Override

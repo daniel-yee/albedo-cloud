@@ -32,7 +32,7 @@ public abstract class DataServiceImpl<Repository extends BaseRepository<T>, T ex
 	@Transactional(readOnly = true, rollbackFor = Exception.class)
 	public T findRelationOne(Serializable id) {
 		List<T> relationList = repository.findRelationList(new QueryWrapper<T>().eq(getClassNameProfix() + DataEntity.F_SQL_ID, id));
-		return SqlHelper.getObject(relationList);
+		return CollUtil.getObject(relationList);
 	}
 
 	@Override
